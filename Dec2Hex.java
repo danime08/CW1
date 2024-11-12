@@ -1,10 +1,10 @@
 public class Dec2Hex {
 
-    public static String decimalToHex(int num) {
+    public static String decimalToHex(long num) {  // Change int to long
         // Handle negative numbers using two's complement (32-bit representation)
         if (num < 0) {
             // Convert negative number to two's complement hex representation
-            num = Integer.toUnsignedLong(num) & 0xFFFFFFFF; // Treat as unsigned 32-bit
+            num = Integer.toUnsignedLong((int) num) & 0xFFFFFFFFL; // Treat as unsigned 32-bit (long)
         }
 
         char ch[] = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
@@ -16,7 +16,7 @@ public class Dec2Hex {
         }
 
         while (num != 0) {
-            int rem = num % 16;
+            int rem = (int) (num % 16);
             hexadecimal = ch[rem] + hexadecimal;
             num = num / 16;
         }
@@ -31,14 +31,15 @@ public class Dec2Hex {
         }
 
         try {
-            int num = Integer.parseInt(args[0]);
+            long num = Long.parseLong(args[0]); // Change to long
             String result = decimalToHex(num);
             System.out.println("Converting the Decimal Value " + num + " to Hex...");
             System.out.println("Hexadecimal representation is: " + result);
         } catch (NumberFormatException e) {
-            System.out.println("Error: Invalid input. Please provide an integer.");
+            System.out.println("Error: Invalid input. Please provide a valid integer.");
         }
     }
 }
+
 
 
