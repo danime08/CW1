@@ -1,0 +1,26 @@
+# Compiled class files
+*.class
+
+# Jar files (if not using a package manager)
+*.jar
+
+# Log files
+*.log
+
+# IDE-specific files
+# VS Code
+.vscode/
+# IntelliJ IDEA
+.idea/
+*.iml
+# Eclipse
+.project
+.classpath
+.settings/
+
+# Temporary files
+*.tmp
+*.temp
+
+# JUnit test reports (if using test reporting plugins)
+test-output/
