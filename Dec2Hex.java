@@ -1,20 +1,27 @@
 public class Dec2Hex {
 
     public static String decimalToHex(int num) {
+        // Handle negative numbers using two's complement (32-bit representation)
         if (num < 0) {
-            return "Error: Negative numbers are not supported";
+            // Convert negative number to two's complement hex representation
+            num = Integer.toUnsignedLong(num) & 0xFFFFFFFF; // Treat as unsigned 32-bit
         }
 
         char ch[] = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
         String hexadecimal = "";
 
-        while(num != 0) {
+        // Edge case: if the number is 0, directly return "0"
+        if (num == 0) {
+            return "0";
+        }
+
+        while (num != 0) {
             int rem = num % 16;
             hexadecimal = ch[rem] + hexadecimal;
             num = num / 16;
         }
 
-        return hexadecimal.isEmpty() ? "0" : hexadecimal;
+        return hexadecimal;
     }
 
     public static void main(String args[]) {
@@ -33,4 +40,5 @@ public class Dec2Hex {
         }
     }
 }
+o
 
